@@ -24,8 +24,7 @@ The code was made specifically to help people at ABC Makerspace to have a
 way to publicly broadcast information on whether is there anyone at the
 Makerspace's premises or not.
 
-The code itself doesn't use any sort of libraries and only use standard
-busybox-included Linux tools (I specifically avoided depending on nmap), so
-you can easily compile it for embedded platforms like routers, cubieboards
-and embedded Linuxes abroad.
-
+The code itself doesn't use any sort of libraries and only depend on the
+"ip" command, which is included in busybox as far as I can remember.
+The scan is sequential and might hit an arp limitation threshold, by default
+we send packets to 25 new hosts per second.
