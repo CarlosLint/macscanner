@@ -1,0 +1,31 @@
+MacScanner                                              
+
+Author: Carlos Lint
+Email: carlos.lint@gmail.com
+06/04/2016
+
+
+
+MacScanner is a software built to scan a C-class network to collect all
+known MAC addresses. This is done by spawning a ping command (of which can
+be replaced by any sort of command you might feel like using) just to
+generate the ARP request.
+
+After ping-sweeping the network, macscanner proceeds to query the kernel via
+the "ip -s neighbour list" and processing the output to determine if the mac
+addresses we are searching for are in the REACHABLE state.
+
+
+This software will allow you to determine whether known mac adresses are
+online or not and place send it to standard output (which will most likely
+be redirected to a file and served by a webserver).
+
+The code was made specifically to help people at ABC Makerspace to have a
+way to publicly broadcast information on whether is there anyone at the
+Makerspace's premises or not.
+
+The code itself doesn't use any sort of libraries and only use standard
+busybox-included Linux tools (I specifically avoided depending on nmap), so
+you can easily compile it for embedded platforms like routers, cubieboards
+and embedded Linuxes abroad.
+
